@@ -1,6 +1,7 @@
 const $noteTitle = $(".note-title");
 const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
+console.log("jsfileloaded");
 const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
 
@@ -52,6 +53,7 @@ const renderActiveNote = () => {
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
   const newNote = {
+    id: Math.floor(Math.random()*100),
     title: $noteTitle.val(),
     text: $noteText.val(),
   };
