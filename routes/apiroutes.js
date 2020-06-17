@@ -3,6 +3,7 @@
 var notesdb = require("../db/db.json");
 var fs = require("fs");
 
+var path = require("path");
 
 
 // ===============================================================================
@@ -34,19 +35,16 @@ module.exports = function (app) {
 
         const deleteNote = [];
 
-        for (let i = 0; i < dbJson.length; i++) {
-            if (dbJson[i].id != noteid) {
-              deleteNote.push(dbJson[i]);
+        for (let i = 0; i < notesdb.length; i++) {
+            if (notesdb[i].id != noteid) {
+              deleteNote.push(notesdb[i]);
             }
-
-            fs.writeFile(outputPath, JSON.stringify(deleteNote), function (err) {
-                if (err) return console.log(err);
+            //console.log(fs.readFile(path.join(__dirname + "../db/db.json")));
+            // fs.writeFile(__dirname+"db.json", 
+            fs.writeFile(path.join(__dirname + "../db/db.json"), JSON.stringify(deleteNote), function (err) {
+                if (err) 
+                return console.log(err);
               });
-        // Empty out the arrays of data
-        //fil iterate on notedb array
-        //inside for loop check id == noteid
-        //
-        //fs -- db.json
         
 
         res.json(notesdb);
