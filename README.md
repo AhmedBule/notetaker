@@ -11,6 +11,9 @@ To install, run npm init and then use node server.js
 ## Usage: 
 To use it, use the terminal and type the file name. node server.js 
 
+<img width="1273" alt="Screen Shot 2020-06-16 at 10 25 38 PM" src="https://user-images.githubusercontent.com/25271965/84851650-7b29cb00-b020-11ea-942a-ca08d6edd1c8.png">
+
+
 
 ## License: 
 (https://img.shields.io/badge/license-MIT-blue.svg)
