@@ -36,18 +36,21 @@ module.exports = function (app) {
         const deleteNote = [];
 
         for (let i = 0; i < notesdb.length; i++) {
-            if (notesdb[i].id != noteid) {
+            if (parseInt(notesdb[i].id) != parseInt(noteid)) {
               deleteNote.push(notesdb[i]);
             }
+        }   
+            notesdb = deleteNote;
+            console.log("DElete route",notesdb)
             //console.log(fs.readFile(path.join(__dirname + "../db/db.json")));
             // fs.writeFile(__dirname+"db.json", 
-            fs.writeFile(path.join(__dirname + "../db/db.json"), JSON.stringify(deleteNote), function (err) {
+            fs.writeFileSync("./db/db.json", JSON.stringify(deleteNote), function (err) {
                 if (err) 
-                return console.log(err);
+                console.log(err);
+                res.json({"Delete":deleteNote})
               });
         
 
-        res.json(notesdb);
-            }
+       
     });
 };
